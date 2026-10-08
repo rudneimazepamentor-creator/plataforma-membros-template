@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 8%;
+    --foreground: 0 0% 95%;
+    --card: 220 13% 12%;
+    --card-foreground: 0 0% 95%;
+    --muted: 220 13% 16%;
+    --muted-foreground: 220 5% 55%;
+    --border: 220 13% 18%;
+    --primary: 0 72% 51%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 13% 16%;
+    --secondary-foreground: 0 0% 95%;
+    --accent: 220 13% 20%;
+    --accent-foreground: 0 0% 95%;
+    --destructive: 0 62% 50%;
+    --ring: 0 72% 51%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(0 72% 51%) 0%, hsl(0 85% 60%) 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(220 13% 8%) 0%, hsl(220 13% 12%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(220 13% 12%) 0%, hsl(220 13% 10%) 100%);
+    --shadow-glow: 0 0 20px hsla(0, 72%, 51%, 0.3);
+    --shadow-card: 0 4px 16px hsla(0, 0%, 0%, 0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: hsl(var(--card)); }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--muted)); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--border)); }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-red-600 hover:bg-red-700 text-white font-semibold px-6 py-3 rounded-lg transition-all duration-200 shadow-lg;
+    box-shadow: 0 4px 14px rgba(220, 38, 38, 0.3);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 6px 20px rgba(220, 38, 38, 0.4);
+    transform: translateY(-1px);
+  }
+
+  .btn-secondary {
+    @apply bg-transparent hover:bg-white/5 text-white font-medium px-6 py-3 rounded-lg border border-white/20 transition-all duration-200;
+  }
+
+  .btn-secondary:hover {
+    @apply border-white/40;
+  }
+
+  .card {
+    background: hsl(var(--card));
+    border: 1px solid hsl(var(--border));
+    @apply rounded-xl p-6;
+    box-shadow: var(--shadow-card);
+  }
+
+  .card:hover {
+    border-color: hsla(0, 72%, 51%, 0.2);
+  }
+
+  .input-field {
+    @apply w-full rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all;
+    background: hsl(var(--muted));
+    border: 1px solid hsl(var(--border));
+  }
+
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
